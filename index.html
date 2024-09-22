@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <article>
+      <div class="card">
+        <form>
+          <div class="form">
+            <div class="day-box">
+              <label for="days" id="ld">Day</label><br />
+              <input type="number" id="days" min="1" max="31" placeholder="DD" />
+              <p id="d-errorMassage"></p>
+            </div>
+            <div class="month-box">
+              <label for="months" id="lm">Month</label><br />
+              <input type="number" id="months" min="1" max="12" placeholder="MM" />
+              <p id="m-errorMassage"></p>
+            </div>
+            <div class="year-box">
+              <label for="years" id="ly">Year</label><br />
+              <input type="number" id="years" min="1900" max="2100" placeholder="YYYY" />
+              <p id="y-errorMassage"></p>
+              <!-- this field is required -->
+            </div>
+          </div>
+          <div class="line">
+            <hr><button type="button" class="btn"><img src="images/icon-arrow.svg" alt="arrow"></button>
+          </div>
+          <div class="result">
+            <div class="year">
+              <h3>years</h3>
+              <p id="yearsResult">- -</p>
+            </div>
+            <div class="month">
+              <h3>Months</h3>
+              <p id="monthsResult">- -</p>
+            </div>
+            <div class="day">
+              <h3>Days</h3>
+              <p id="daysResult">- -</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </article>
+  </main>
+  <script defer src="js/index.js"></script>
+</body>
+
+</html>
