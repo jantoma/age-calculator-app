@@ -73,44 +73,18 @@ button.addEventListener("click", () => {
   const birthDate = new Date(yearInput.value, monthInput.value - 1, dayInput.value);
 
   let ageInYears = currentDate.getFullYear() - birthDate.getFullYear();
-  const birthMonthThisYear = birthDate.getMonth();
-  const currentMonth = currentDate.getMonth();
+  let ageInMonths = currentDate.getMonth() - birthDate.getMonth();
+  let ageInDays = currentDate.getDate() - birthDate.getDate();
 
-  if (
-    currentMonth < birthMonthThisYear ||
-    (currentMonth === birthMonthThisYear &&
-      currentDate.getDate() < birthDate.getDate())
-  ) {
-    ageInYears--;
-  }
-
-  let ageInMonths, ageInDays;
-  const birthMonthInCurrentYear = birthDate.getMonth() + 1;
-  const birthDayInCurrentYear = birthDate.getDate();
-
-  if (currentMonth >= birthMonthInCurrentYear) {
-    ageInMonths = currentMonth - birthMonthInCurrentYear;
-    ageInDays = currentDate.getDate() - birthDayInCurrentYear;
-  } else {
-    ageInMonths = 12 - (birthMonthInCurrentYear - currentMonth);
-    ageInDays =
-      currentDate.getDate() < birthDayInCurrentYear
-        ? currentDate.getDate() +
-          new Date(currentDate.getFullYear(), currentMonth, 0).getDate() -
-          birthDayInCurrentYear
-        : currentDate.getDate() - birthDayInCurrentYear;
-  }
-  if (currentMonth < birthMonthInCurrentYear) {
-    ageInMonths = 12 + currentMonth - birthMonthInCurrentYear;
-    ageInYears--; 
-  }
 
   if (ageInDays < 0) {
-    const daysInPreviousMonth = new Date(currentDate.getFullYear(), currentMonth, 0).getDate();
-    ageInDays += daysInPreviousMonth;
-    ageInMonths--;
+      ageInMonths--;
+      ageInDays += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+  }
+  
+    
     if (ageInMonths < 0) {
-      ageInMonths = 11;
+      ageInMonths += 12;
       ageInYears--;
     }
   }
