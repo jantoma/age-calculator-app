@@ -87,7 +87,7 @@ button.addEventListener("click", () => {
       ageInMonths += 12;
       ageInYears--;
     }
-  }
+  
 
   document.getElementById("yearsResult").innerText = ageInYears;
   document.getElementById("monthsResult").innerText = ageInMonths;
